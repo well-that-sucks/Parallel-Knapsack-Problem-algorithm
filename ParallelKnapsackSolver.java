@@ -14,6 +14,7 @@ public class ParallelKnapsackSolver extends KnapsackSolver {
     }
 
     public KnapsackSolution solve(int itemsNum, int values[], int weights[], int capacity) {
+        long startTime = System.nanoTime();
         ExecutorService pool = Executors.newFixedThreadPool(threadNumber);
 
         int excessiveSize = (capacity + 1) % threadNumber;
@@ -56,6 +57,9 @@ public class ParallelKnapsackSolver extends KnapsackSolver {
                 e.printStackTrace();
             }
 	    }
-        return new KnapsackSolution(res[itemsNum][capacity], weightsUsed);
+
+        long duration = (System.nanoTime() - startTime);
+
+        return new KnapsackSolution(res[itemsNum][capacity], weightsUsed, duration / 1000000000.0);
     }
 }

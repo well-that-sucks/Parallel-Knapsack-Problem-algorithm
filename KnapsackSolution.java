@@ -1,17 +1,23 @@
 public class KnapsackSolution {
-    private int maxWorth;
-    private int[] weightsUsed;
+    private final int maxWorth;
+    private final int[] itemsUsed;
+    private final double timeElapsed;
 
-    public KnapsackSolution(int maxWorth, int[] weightsUsed) {
+    public KnapsackSolution(int maxWorth, int[] itemsUsed, double timeElapsed) {
         this.maxWorth = maxWorth;
-        this.weightsUsed = weightsUsed;
+        this.itemsUsed = itemsUsed;
+        this.timeElapsed = timeElapsed;
     }
 
     public int getMaxWorth() {
         return maxWorth;
     }
 
-    public int[] getWeightsUsed() {
-        return weightsUsed;
+    public int[] getItemsUsed() {
+        return itemsUsed;
+    }
+
+    public double getTimeElapsed() {
+        return timeElapsed;
     }
 }

@@ -9,8 +9,13 @@ public class Solver {
         this.solver = solver;
     }
 
-    public void solve(/* some data */) {
+    public KnapsackSolution solve(TestDataGenerator generator) {
         // TBD
+        return null;
+    }
+
+    public KnapsackSolution solve(int itemsNum, int[] values, int[] weights, int capacity) {
+        return solver.solve(itemsNum, values, weights, capacity);
     }
 
     public void setSolver(KnapsackSolver newSolver) {
