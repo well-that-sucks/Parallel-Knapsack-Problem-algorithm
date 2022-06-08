@@ -60,6 +60,6 @@ public class ParallelKnapsackSolver extends KnapsackSolver {
 
         long duration = (System.nanoTime() - startTime);
 
-        return new KnapsackSolution(res[itemsNum][capacity], weightsUsed, duration / 1000000000.0);
+        return new KnapsackSolution(res[itemsNum][capacity], weightsUsed, duration / 1000000000.0, this);
     }
 }

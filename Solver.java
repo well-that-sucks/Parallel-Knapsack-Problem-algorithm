@@ -9,9 +9,9 @@ public class Solver {
         this.solver = solver;
     }
 
-    public KnapsackSolution solve(TestDataGenerator generator) {
-        // TBD
-        return null;
+    public KnapsackSolution solve(InputValues inputValues) {
+        return solver.solve(inputValues.getItemsNumber(), inputValues.getValues(), inputValues.getWeights(),
+                inputValues.getMaxCapacity());
     }
 
     public KnapsackSolution solve(int itemsNum, int[] values, int[] weights, int capacity) {

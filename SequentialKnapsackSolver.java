@@ -37,6 +37,6 @@ public class SequentialKnapsackSolver extends KnapsackSolver {
 
         long duration = (System.nanoTime() - startTime);
 
-        return new KnapsackSolution(res[itemsNum][capacity], itemsUsed.stream().mapToInt(i -> i).toArray(), duration / 1000000000.0);
+        return new KnapsackSolution(res[itemsNum][capacity], itemsUsed.stream().mapToInt(i -> i).toArray(), duration / 1000000000.0, this);
     }
 }
