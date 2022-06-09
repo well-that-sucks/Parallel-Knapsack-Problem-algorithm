@@ -1,23 +1,30 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class KnapsackSolution {
+    private final int itemNumber;
     private final int maxWorth;
-    private final int[] itemsUsed;
+    private final ArrayList<Integer> itemsUsed;
     private final double timeElapsed;
     private final KnapsackSolver solverUsed;
 
-    public KnapsackSolution(int maxWorth, int[] itemsUsed, double timeElapsed, KnapsackSolver solverUsed) {
+    public KnapsackSolution(int itemsNumber, int maxWorth, ArrayList<Integer> itemsUsed, double timeElapsed,
+            KnapsackSolver solverUsed) {
+        this.itemNumber = itemsNumber;
         this.maxWorth = maxWorth;
         this.itemsUsed = itemsUsed;
         this.timeElapsed = timeElapsed;
         this.solverUsed = solverUsed;
     }
 
+    public int getItemNumber() {
+        return itemNumber;
+    }
+
     public int getMaxWorth() {
         return maxWorth;
     }
 
-    public int[] getItemsUsed() {
+    public ArrayList<Integer> getItemsUsed() {
         return itemsUsed;
     }
 
@@ -40,7 +47,6 @@ public class KnapsackSolution {
         }
 
         KnapsackSolution comparedSolution = (KnapsackSolution) obj;
-        return (this.maxWorth == comparedSolution.maxWorth
-                && Arrays.equals(this.itemsUsed, comparedSolution.itemsUsed));
+        return (this.maxWorth == comparedSolution.maxWorth && itemsUsed.equals(comparedSolution.itemsUsed));
     }
 }

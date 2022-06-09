@@ -17,7 +17,7 @@ public class InputValidator {
     private int weightsMax = 32768;
     private String threadsRegex;
     private int threadsMin = 1;
-    private int threadsMax = 20;
+    private int threadsMax = 50;
 
     public InputValidator(String menuItemRegex, String submenuItemRegex, String itemNumberRegex, String capacityRegex, String threadsRegex/*, String valuesRegex, String weightsRegex*/) {
         this.menuItemRegex = menuItemRegex;

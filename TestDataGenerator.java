@@ -3,11 +3,11 @@ import java.util.Random;
 
 public class TestDataGenerator {
     private final int VALUES_MIN = 1;
-    private final int VALUES_MAX = 32768;
+    private final int VALUES_MAX = 100; // 32768
     private final int WEIGHT_MIN = 1;
-    private final int WEIGHT_MAX = 32768;
-    private final int CAPACITY_MIN = 1;
-    private final int CAPACITY_MAX = 32768;
+    private final int WEIGHT_MAX = 100;
+    private final int CAPACITY_MIN = 950;
+    private final int CAPACITY_MAX = 1000; // 32768
     private final int BATCHES_NUMBER = 10;
 
     public InputValues generateInputValues(int itemsNum) {
