@@ -21,7 +21,7 @@ public class View {
     public final String STEP_EXECUTING_MSG = "Calculating a test batch with the size of ";
     public final String EXECUTION_TIME_MSG = "Execution time is ";
     public final String SPEEDUP_MSG = "Speedup realtive to the sequential algorithm is ";
-    public final String TESTS_OK_MSG = "All of the tests are correct!\n";
+    public final String TESTS_OK_MSG = "All the tests are correct!\n";
     public final String TESTS_FAILURE_MSG = "Some of the tests aren't correct!\n";
     public final String SOLVER_USED_MSG = "The solver being used for the following tests is ";
     public final String TRY_AGAIN_MSG = "Input is incorrect. Try again!\n";
@@ -39,7 +39,6 @@ public class View {
             ArrayList<KnapsackSolution> solutionsSet = testSolutions.get(i);
             System.out.println(SOLVER_USED_MSG + solutionsSet.get(0).getSolverUsed().toString());
             for (int j = 0; j < solutionsSet.size(); j++) {
-                System.out.println(solutionsSet.get(j).getItemsUsed());
                 System.out.println(STEP_EXECUTING_MSG + solutionsSet.get(j).getItemNumber() + ": ");
                 System.out.println(EXECUTION_TIME_MSG + (solutionsSet.get(j).getTimeElapsed()) + " seconds");
                 if (i > 0) {

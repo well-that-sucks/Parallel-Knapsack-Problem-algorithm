@@ -2,26 +2,6 @@ import java.util.ArrayList;
 
 public class SequentialKnapsackSolver extends KnapsackSolver {
     public KnapsackSolution solve(int itemsNum, int values[], int weights[], int capacity) {
-        /*
-         * values = new int[] {60, 100, 120};
-         * weights = new int[] {10, 20, 30};
-         * capacity = 50;
-         * itemsNum = 3;
-         */
-        /*
-        values = new int[] { 80, 75, 93 };
-        weights = new int[] { 692, 18, 55 };
-        capacity = 693;
-        itemsNum = 3;
-        System.out.println(capacity);
-        for (int i = 0; i < itemsNum; i++) {
-            System.out.print(weights[i] + " ");
-        }
-        System.out.println();
-        for (int i = 0; i < itemsNum; i++) {
-            System.out.print(values[i] + " ");
-        }
-        System.out.println();*/
 
         long startTime = System.nanoTime();
         int[][] res = new int[itemsNum + 1][];
@@ -41,8 +21,6 @@ public class SequentialKnapsackSolver extends KnapsackSolver {
                 }
             }
         }
-
-        
 
         ArrayList<Integer> itemsUsed = new ArrayList<Integer>();
         int k = itemsNum;
