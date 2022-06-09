@@ -25,6 +25,7 @@ public class View {
     public final String TESTS_OK_MSG = "All of the tests are correct!\n";
     public final String TESTS_FAILURE_MSG = "Some of the tests aren't correct!\n";
     public final String SOLVER_USED_MSG = "The solver being used for the following tests is ";
+    public final String TRY_AGAIN_MSG = "Input is incorrect. Try again!\n";
 
     public void printMessage(String message) {
         System.out.print(message);

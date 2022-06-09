@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class KnapsackSolution {
     private final int maxWorth;
     private final int[] itemsUsed;
@@ -25,5 +27,20 @@ public class KnapsackSolution {
 
     public KnapsackSolver getSolverUsed() {
         return solverUsed;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        KnapsackSolution comparedSolution = (KnapsackSolution) obj;
+        return (this.maxWorth == comparedSolution.maxWorth
+                && Arrays.equals(this.itemsUsed, comparedSolution.itemsUsed));
     }
 }
