@@ -34,6 +34,8 @@ public class Controller {
                     processComparisonOption(
                             readNumberUntilCorrect(sc, view.VALUES_AUTOTEST_ENTER_MSG,
                                     inputValidator::validateAndReturnItemNumberAuto),
+                            readNumberUntilCorrect(sc, view.WEIGHTS_AUTOTEST_ENTER_MSG,
+                                    inputValidator::validateAndReturnCapacityAuto),
                             new SequentialKnapsackSolver(),
                             new KnapsackSolver[] { new ParallelKnapsackSolver(readNumberUntilCorrect(sc,
                                     view.THREAD_NUMBER_ENTER_MSG, inputValidator::validateAndReturnThreadNumber)) });
@@ -94,11 +96,11 @@ public class Controller {
         }
     }
 
-    public void processComparisonOption(int maxItemNumber, KnapsackSolver referenceSolver,
+    public void processComparisonOption(int maxItemNumber, int maxCapacity, KnapsackSolver referenceSolver,
             KnapsackSolver[] comparedSolvers) {
         model.setNewSolver(referenceSolver);
         view.printExecutionStatus(referenceSolver);
-        model.addTestSolutions(model.runTestBatches(model.generateTestBatches(maxItemNumber)));
+        model.addTestSolutions(model.runTestBatches(model.generateTestBatches(maxItemNumber, maxCapacity)));
         for (var solver : comparedSolvers) {
             model.setNewSolver(solver);
             model.addTestSolutions(model.runTestBatches());
@@ -130,10 +132,10 @@ public class Controller {
         while (true) {
             try {
                 view.printMessage(promptLine);
-                view.printMessage(view.WORTH_ENTER_MSG);
                 for (int i = 0; i < itemNumber; i++) {
                     res[i] = sc.nextInt();
                 }
+                sc.nextLine();
                 validationFunction.validate(res);
                 return res;
             } catch (InvalidInputException e) {

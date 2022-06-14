@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 public class KnapsackSolution {
     private final int itemNumber;
+    private final int initialCapacity;
     private final int maxWorth;
     private final ArrayList<Integer> itemsUsed;
     private final double timeElapsed;
     private final KnapsackSolver solverUsed;
 
-    public KnapsackSolution(int itemsNumber, int maxWorth, ArrayList<Integer> itemsUsed, double timeElapsed,
-            KnapsackSolver solverUsed) {
+    public KnapsackSolution(int itemsNumber, int initialCapacity, int maxWorth, ArrayList<Integer> itemsUsed,
+            double timeElapsed, KnapsackSolver solverUsed) {
         this.itemNumber = itemsNumber;
+        this.initialCapacity = initialCapacity;
         this.maxWorth = maxWorth;
         this.itemsUsed = itemsUsed;
         this.timeElapsed = timeElapsed;
@@ -18,6 +20,10 @@ public class KnapsackSolution {
 
     public int getItemNumber() {
         return itemNumber;
+    }
+
+    public int getInitialCapacity() {
+        return initialCapacity;
     }
 
     public int getMaxWorth() {
@@ -47,6 +53,7 @@ public class KnapsackSolution {
         }
 
         KnapsackSolution comparedSolution = (KnapsackSolution) obj;
-        return (this.maxWorth == comparedSolution.maxWorth && itemsUsed.equals(comparedSolution.itemsUsed));
+        return (itemNumber == comparedSolution.itemNumber && initialCapacity == comparedSolution.initialCapacity
+                && maxWorth == comparedSolution.maxWorth && itemsUsed.equals(comparedSolution.itemsUsed));
     }
 }

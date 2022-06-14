@@ -5,10 +5,12 @@ public class InputValidator {
     private int itemNumberManualMin = 1;
     private int itemNumberManualMax = 20;
     private int itemNumberAutoMin = 1;
-    private int itemNumberAutoMax = 32768;
+    private int itemNumberAutoMax = Integer.MAX_VALUE;
     private String capacityRegex;
     private int capacityMin = 1;
     private int capacityMax = 32768;
+    private int capacityAutoMin = 100;
+    private int capacityAutoMax = Integer.MAX_VALUE;
     // private String valuesRegex;
     private int valuesMin = 1;
     private int valuesMax = 32768;
@@ -32,8 +34,8 @@ public class InputValidator {
     public InputValidator() {
         menuItemRegex = "^[1-4]$";
         submenuItemRegex = "^[1-2]$";
-        itemNumberRegex = "^[1-9][0-9]{0,4}$";
-        capacityRegex = "^[1-9][0-9]{0,4}$";
+        itemNumberRegex = "^[1-9][0-9]{0,9}$";
+        capacityRegex = "^[1-9][0-9]{0,9}$";
         threadsRegex = "^[1-9][0-9]?$";
         // valuesRegex = "^[1-9][0-9]{0,4}$";
         // weightsRegex = "^[1-9][0-9]{0,4}$";
@@ -115,6 +117,21 @@ public class InputValidator {
             }
             int capacity = Integer.parseInt(input);
             if (capacity >= capacityMin && capacity < capacityMax) {
+                return capacity;
+            }
+            throw new InvalidInputException("incorrect input");
+        }
+    }
+
+    public int validateAndReturnCapacityAuto(String input) throws InvalidInputException, NumberFormatException {
+        if (input.equals("")) {
+            throw new InvalidInputException("field shouldn't be empty");
+        } else {
+            if (!input.matches(capacityRegex)) {
+                throw new InvalidInputException("incorrect input format");
+            }
+            int capacity = Integer.parseInt(input);
+            if (capacity >= capacityAutoMin && capacity < capacityAutoMax) {
                 return capacity;
             }
             throw new InvalidInputException("incorrect input");

@@ -46,8 +46,9 @@ public class Model {
         return dataGenerator.generateInputValues(itemsNumber);
     }
 
-    public ArrayList<InputValues> generateTestBatches(int maxItemNumber) {
-        testBatches = dataGenerator.generateTestBatches(maxItemNumber);
+    public ArrayList<InputValues> generateTestBatches(int maxItemNumber, int maxCapacity) {
+        testSolutions.clear();
+        testBatches = dataGenerator.generateTestBatches(maxItemNumber, maxCapacity);
         return testBatches;
     }
 
